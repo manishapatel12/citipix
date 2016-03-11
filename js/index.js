@@ -1,33 +1,47 @@
+var bKImg = "";
+
 $('document').ready(function(){
 
-	var bKImg = "";
+	
 	function setBGImage(city) {
-		switch (String(city)) {
-			case ("NYC" || "New York City") :
-						bKImg = 'url(../images/nyc.jpg)';
-						break;
-			case "Austin" :
-						bKImg = 'url(../images/austin.jpg)';
-						break;
-			case ("LA" || "Los Angele") :
-						bKImg = 'url(../images/la.jpg)';
-						break;
-			case ("SFO" || "San Francisco") :
-						bKImg = 'url(../images/sf.jpg)';
-						break;
-			case "Sydney" :
-						bKImg = 'url(../images/sydney.jpg)';
-						break;
+		switch (city.toLowerCase()) {
+			case "nyc":
+				bKImg = "url(./images/nyc.jpg)";
+				break;
+			case "new york":
+				bKImg = "url(./images/nyc.jpg)";
+				break;
+			case "new york city":
+				bKImg = "url(./images/nyc.jpg)";
+				break;
+			case "austin":
+				bKImg = "url(./images/austin.jpg)";
+				break;
+			case "la":
+				bKImg =  "url('./images/la.jpg')";
+				break;
+			case "los angeles":
+				bKImg =  "url('./images/la.jpg')";
+				break;
+			case "sfo":
+				bKImg = "url('./images/sf.jpg')";
+				break;	
+			case "san francisco":
+				bKImg = "url('./images/sf.jpg')";
+				break;					
+			case "sydney" :
+				bKImg = "url('./images/sydney.jpg')";
+				break;
 			default:
-						bKImg = 'url(../images/citipix_skyline.jpg)';																
+				bKImg = "url('./images/citipix_skyline.jpg')";
+				break;																
 		}
-		console.log("backImage" + bKImg);
 		return bKImg;
 	}	
 
 	$('#submit-btn').click(function(){
-	var city = $('#city-type').val();
-	console.log(city);
-	$('#bGImage').css('background-image',setBGImage(city));	
+		var city = $('#city-type').val();
+		$("body").css('background-image',setBGImage(city));	
+		return false;
 	});
 });
